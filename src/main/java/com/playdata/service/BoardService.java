@@ -19,4 +19,15 @@ public class BoardService {
         return boardDao.selectAll(req);
 
     }
+
+    /**
+     * board 테이블에서 id에 해당하는 데이터를 조회
+     * @param id
+     * @param req
+     * @return BoardDta
+     */
+    public BoardDto getBoard(Object id, HttpServletRequest req) {
+        BoardDao boardDao = new BoardDao();
+        return boardDao.selectById(id, req);
+    }
 }

@@ -3,14 +3,14 @@ package com.playdata.dto;
 public class BoardDto {
     private int id;
     private String title;
-    private String content;
+    private String contents;
     private String author;
     private String created_at;
 
-    public BoardDto(int id, String title, String content, String author, String created_at) {
+    public BoardDto(int id, String title, String contents, String author, String created_at) {
         this.id = id;
         this.title = title;
-        this.content = content;
+        this.contents = contents;
         this.author = author;
         this.created_at = created_at;
     }
@@ -31,12 +31,12 @@ public class BoardDto {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getContents() {
+        return contents;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContents(String contents) {
+        this.contents = contents;
     }
 
     public String getAuthor() {
@@ -53,5 +53,46 @@ public class BoardDto {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public static BoardBuilder builder() {
+        return new BoardBuilder();
+    }
+
+    public static class BoardBuilder{
+        private int id;
+        private String title;
+        private String contents;
+        private String author;
+        private String created_at;
+
+        public BoardBuilder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public BoardBuilder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public BoardBuilder contents(String contents) {
+            this.contents = contents;
+            return this;
+        }
+
+        public BoardBuilder author(String author) {
+            this.author = author;
+            return this;
+        }
+
+        public BoardBuilder created_at(String created_at) {
+            this.created_at = created_at;
+            return this;
+        }
+
+        public BoardDto build() {
+            return new BoardDto(id, title, contents, author, created_at);
+        }
     }
 }
